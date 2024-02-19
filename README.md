@@ -3,7 +3,13 @@ This repository contains all code we used to produce the results given in our re
 
 ## Step 2 - Semantic novelty detection baselines
 To replicate our results enter the folder Step_2_and_3_3DOS. Run all the commands in the README.md file in the folder. 
-Then run the script train_models.sh and afterwards run the script evaluate_models.sh. The evaluaations of the different models will be in the folder Evaluations.
+Then run the script train_models.sh and afterwards run the script evaluate_models.sh. 
+'''bash
+train_models.sh
+evaluate_models.sh
+'''
+
+The evaluaations of the different models will be in the folder Evaluations.
 
 ## Step 3 - Semantic novelty detection analysis
 To replicate our results use the scripts follow the steps:
