@@ -1,0 +1,126 @@
+Cannot import torchlars
+out-of-distribution eval - Modelnet -> SONN ..
+Arguments: Namespace(apply_fix_cellphone=True, augm_set='rw', batch_size=1, checkpoints_dir='outputs', ckpt_path='outputs/DGCNN_CE_SR1/models/model_best.pth', config='cfgs/dgcnn-cla.yaml', corruption=None, cs=False, cs_beta=0.1, cs_gan_lr=0.0002, data_root='./3D_OS_release_data', epochs=250, eval_step=1, exp_name='DGCNN_CE_SR1', grad_norm_clip=-1, local_rank=0, loss='CE', num_points=1024, num_points_test=2048, num_workers=6, resume=None, save_feats=None, save_step=10, script_mode='eval', seed=1, sonn_h5_name='objectdataset.h5', sonn_split='main_split', src='SR1', tar1='none', tar2='none', use_amp=False, use_sync_bn=False, wandb_group='md-2-sonn-augmCorr', wandb_name=None, wandb_proj='benchmark-3d-ood-cla')
+ModelNet40_OOD - Reading data from h5py file: ./3D_OS_release_data/modelnet40_normal_resampled/ood_sets_cache/SR1_train.h5
+ModelNet40_OOD - split: train, categories: {'chair': 0, 'bookshelf': 1, 'door': 2, 'sink': 3, 'sofa': 4}
+SR1 train data len: 2378
+ModelNet40_OOD - Reading data from h5py file: ./3D_OS_release_data/modelnet40_normal_resampled/ood_sets_cache/SR1_test.h5
+ModelNet40_OOD - split: test, categories: {'chair': 0, 'bookshelf': 1, 'door': 2, 'sink': 3, 'sofa': 4}
+Src is SR1
+
+ScanObject - num_points: 2048, sonn_split: main_split, h5_suffix: objectdataset.h5, split: all, class_choice: {4: 0, 8: 1, 7: 2, 12: 3, 13: 4}, num samples: 1255
+ScanObject - num_points: 2048, sonn_split: main_split, h5_suffix: objectdataset.h5, split: all, class_choice: {10: 0, 14: 1, 5: 2, 6: 3, 9: 2}, num samples: 788
+ScanObject - num_points: 2048, sonn_split: main_split, h5_suffix: objectdataset.h5, split: all, class_choice: {0: 404, 1: 404, 2: 404, 3: 404, 11: 404}, num samples: 847
+dgcnn k: 20
+dgcnn emb_dims: 1024
+Clf - feature encoder: DGCNN
+Clf Head - num classes: 5, input dim: 2048, act: leakyrelu, dropout: 0.5
+Model params count: 1.8003 M
+Load weights:  <All keys matched successfully>
+
+################################################################################
+Computing OOD metrics with MSP normality score...
+AUROC - Src label: 1, Tar label: 0
+Src Test - Clf Acc: 0.7354581673306773, Clf Bal Acc: 0.7173488380871531
+SRC->TAR1:      AUROC: 0.7459, FPR95: 0.8769, AUPR_IN: 0.8525, AUPR_OUT: 0.5720
+SRC->TAR2:      AUROC: 0.7058, FPR95: 0.8937, AUPR_IN: 0.8042, AUPR_OUT: 0.5584
+SRC->TAR1+TAR2: AUROC: 0.7251, FPR95: 0.8856, AUPR_IN: 0.7269, AUPR_OUT: 0.7213
+to spreadsheet: 0.7459031892733634,0.8769035532994924,0.8525092758585189,0.571994072266415,0.7057503163261947,0.8937426210153483,0.8041656709688955,0.5584034964919854,0.7251022820034845,0.8856269113149847,0.7269346661712249,0.7212556354520085
+################################################################################
+
+################################################################################
+Computing OOD metrics with MLS normality score...
+AUROC - Src label: 1, Tar label: 0
+Src Test - Clf Acc: 0.7354581673306773, Clf Bal Acc: 0.7173488380871531
+SRC->TAR1:      AUROC: 0.7045, FPR95: 0.9416, AUPR_IN: 0.8250, AUPR_OUT: 0.5119
+SRC->TAR2:      AUROC: 0.6397, FPR95: 0.9244, AUPR_IN: 0.7454, AUPR_OUT: 0.4959
+SRC->TAR1+TAR2: AUROC: 0.6709, FPR95: 0.9327, AUPR_IN: 0.6609, AUPR_OUT: 0.6690
+to spreadsheet: 0.7045007786114424,0.9416243654822335,0.8249720467087572,0.511898516416418,0.6397192810811065,0.9244391971664699,0.7453816228142098,0.4959040659514541,0.6709411893709565,0.9327217125382263,0.6609461181283409,0.6689796297908219
+################################################################################
+
+################################################################################
+Computing OOD metrics with entropy normality score...
+AUROC - Src label: 1, Tar label: 0
+Src Test - Clf Acc: 0.7354581673306773, Clf Bal Acc: 0.7173488380871531
+SRC->TAR1:      AUROC: 0.7420, FPR95: 0.8845, AUPR_IN: 0.8513, AUPR_OUT: 0.5524
+SRC->TAR2:      AUROC: 0.7022, FPR95: 0.8914, AUPR_IN: 0.8029, AUPR_OUT: 0.5487
+SRC->TAR1+TAR2: AUROC: 0.7214, FPR95: 0.8881, AUPR_IN: 0.7256, AUPR_OUT: 0.7095
+to spreadsheet: 0.7420167047545857,0.8845177664974619,0.8513323282989776,0.5524232198263628,0.7021933517406171,0.8913813459268005,0.8029218538850609,0.5487382700598534,0.7213865029179916,0.8880733944954129,0.7255967464146426,0.7095447708170664
+################################################################################
+
+################################################################################
+Computing OOD metrics with distance from train features...
+Euclidean distances in a non-normalized space:
+AUROC - Src label: 1, Tar label: 0
+Src Test - Clf Acc: 0.7258964143426295, Clf Bal Acc: 0.6976737044680342
+SRC->TAR1:      AUROC: 0.6438, FPR95: 0.8591, AUPR_IN: 0.7394, AUPR_OUT: 0.5184
+SRC->TAR2:      AUROC: 0.6893, FPR95: 0.8548, AUPR_IN: 0.7619, AUPR_OUT: 0.5656
+SRC->TAR1+TAR2: AUROC: 0.6673, FPR95: 0.8569, AUPR_IN: 0.6076, AUPR_OUT: 0.7002
+to spreadsheet: 0.6437700972758711,0.8591370558375635,0.7393928684143896,0.518413909902726,0.6892778355291937,0.8547815820543093,0.761860339761532,0.5656414829373924,0.6673450540346261,0.8568807339449541,0.6076145656956059,0.7001678883386202
+
+Euclidean distances with prototypes:
+AUROC - Src label: 1, Tar label: 0
+Src Test - Clf Acc: 0.21274900398406374, Clf Bal Acc: 0.2
+SRC->TAR1:      AUROC: 0.7329, FPR95: 0.8236, AUPR_IN: 0.8128, AUPR_OUT: 0.5906
+SRC->TAR2:      AUROC: 0.7023, FPR95: 0.8406, AUPR_IN: 0.7521, AUPR_OUT: 0.5886
+SRC->TAR1+TAR2: AUROC: 0.7170, FPR95: 0.8324, AUPR_IN: 0.6463, AUPR_OUT: 0.7379
+to spreadsheet: 0.732888749570247,0.8236040609137056,0.8128159589110671,0.5905899682599143,0.7022846042041986,0.8406139315230224,0.7520813122923656,0.5886128014650761,0.7170344920014132,0.8324159021406727,0.6462701174564462,0.7379336058767546
+
+Cosine similarities on the hypersphere:
+AUROC - Src label: 1, Tar label: 0
+Src Test - Clf Acc: 0.7306772908366533, Clf Bal Acc: 0.7115522720935975
+SRC->TAR1:      AUROC: 0.6905, FPR95: 0.9226, AUPR_IN: 0.8060, AUPR_OUT: 0.5159
+SRC->TAR2:      AUROC: 0.6680, FPR95: 0.9256, AUPR_IN: 0.7699, AUPR_OUT: 0.5135
+SRC->TAR1+TAR2: AUROC: 0.6788, FPR95: 0.9242, AUPR_IN: 0.6664, AUPR_OUT: 0.6790
+to spreadsheet: 0.6904766719922342,0.9225888324873096,0.8060434780887998,0.5159463087729801,0.66802071524998,0.9256198347107438,0.769921834981717,0.5134896239524838,0.6788435249826383,0.9241590214067278,0.6664378904366202,0.678958898440212
+
+Cosine similarities with prototypes:
+AUROC - Src label: 1, Tar label: 0
+Src Test - Clf Acc: 0.21274900398406374, Clf Bal Acc: 0.2
+SRC->TAR1:      AUROC: 0.5987, FPR95: 0.9442, AUPR_IN: 0.7456, AUPR_OUT: 0.4323
+SRC->TAR2:      AUROC: 0.5940, FPR95: 0.9693, AUPR_IN: 0.6935, AUPR_OUT: 0.4392
+SRC->TAR1+TAR2: AUROC: 0.5963, FPR95: 0.9572, AUPR_IN: 0.5689, AUPR_OUT: 0.6055
+to spreadsheet: 0.5987339980180799,0.9441624365482234,0.7455563952581832,0.43226944579268306,0.5940356637205605,0.9693034238488784,0.693462984702031,0.4392328865430711,0.5963000597000379,0.9571865443425076,0.5688658644095343,0.6054787912207521
+################################################################################
+
+################################################################################
+Computing OOD metrics with ODIN normality score...
+AUROC - Src label: 1, Tar label: 0
+SRC->TAR1:      AUROC: 0.7046, FPR95: 0.9416, AUPR_IN: 0.8250, AUPR_OUT: 0.5120
+SRC->TAR2:      AUROC: 0.6399, FPR95: 0.9233, AUPR_IN: 0.7456, AUPR_OUT: 0.4962
+SRC->TAR1+TAR2: AUROC: 0.6711, FPR95: 0.9321, AUPR_IN: 0.6612, AUPR_OUT: 0.6691
+to spreadsheet: 0.7045614496329402,0.9416243654822335,0.8250269938013618,0.5119706995855872,0.6398768562115176,0.9232585596221959,0.7456287742156509,0.4961528753359941,0.6710520608696712,0.9321100917431193,0.6612048921071134,0.6691295757608843
+################################################################################
+
+################################################################################
+Computing OOD metrics with Energy normality score...
+AUROC - Src label: 1, Tar label: 0
+SRC->TAR1:      AUROC: 0.6999, FPR95: 0.9518, AUPR_IN: 0.8223, AUPR_OUT: 0.5042
+SRC->TAR2:      AUROC: 0.6347, FPR95: 0.9303, AUPR_IN: 0.7429, AUPR_OUT: 0.4871
+SRC->TAR1+TAR2: AUROC: 0.6661, FPR95: 0.9407, AUPR_IN: 0.6577, AUPR_OUT: 0.6612
+to spreadsheet: 0.6998837138754626,0.9517766497461929,0.8223388521784993,0.50415777775405,0.6346561804729135,0.9303423848878394,0.7428738370914227,0.48711750609708543,0.6660930589568332,0.9406727828746178,0.6577417116816524,0.6611832000600142
+################################################################################
+
+################################################################################
+Computing OOD metrics with GradNorm normality score...
+AUROC - Src label: 1, Tar label: 0
+SRC->TAR1:      AUROC: 0.7041, FPR95: 0.9289, AUPR_IN: 0.8257, AUPR_OUT: 0.5113
+SRC->TAR2:      AUROC: 0.6357, FPR95: 0.9268, AUPR_IN: 0.7483, AUPR_OUT: 0.4869
+SRC->TAR1+TAR2: AUROC: 0.6687, FPR95: 0.9278, AUPR_IN: 0.6645, AUPR_OUT: 0.6650
+to spreadsheet: 0.7040770926446498,0.9289340101522843,0.8257163171056126,0.5113288703318104,0.6357465063006533,0.9268004722550177,0.7482981904295548,0.48690990008107393,0.6686789234499312,0.92782874617737,0.6644976964623984,0.6649792683784008
+################################################################################
+
+################################################################################
+Building React validation loader...
+ModelNet40_OOD - Reading data from h5py file: ./3D_OS_release_data/modelnet40_normal_resampled/ood_sets_cache/SR1_test.h5
+ModelNet40_OOD - split: test, categories: {'chair': 0, 'bookshelf': 1, 'door': 2, 'sink': 3, 'sofa': 4}
+React Val - SR1 data len: 340
+Estimating react threshold...t = 1.2700
+Computing OOD metrics with React (+Energy) normality score, ID-dependent threshold (=1.2700)...
+React - using SR1 test to compute threshold
+AUROC - Src label: 1, Tar label: 0
+SRC->TAR1:      AUROC: 0.7016, FPR95: 0.9480, AUPR_IN: 0.8240, AUPR_OUT: 0.5070
+SRC->TAR2:      AUROC: 0.6407, FPR95: 0.9292, AUPR_IN: 0.7504, AUPR_OUT: 0.4906
+SRC->TAR1+TAR2: AUROC: 0.6701, FPR95: 0.9382, AUPR_IN: 0.6654, AUPR_OUT: 0.6642
+to spreadsheet: 0.7016451958662812,0.9479695431472082,0.8240256637392974,0.5069542374341587,0.6406750800810924,0.9291617473435655,0.7503525860298657,0.4905758630831415,0.6700600655482047,0.9382262996941896,0.6654420290548928,0.664165061400136
+################################################################################

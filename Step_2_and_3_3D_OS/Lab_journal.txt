@@ -1,0 +1,16 @@
+Today i want to test the failure case of the following mehtods:
+- PointNet++ CE : MSP (Complete)
+- PointNet++ CE : MLS (Complete)
+- PointNet++ Cosine : MSP (Complete)
+- PointNet++ Cosine : MLS (Complete)
+- PointNet++ Subarcface : MSP (Complete)
+- PointNet++ Subarcface : MLS (Complete)
+
+14.02.24
+ Jeg må lage de to figurene til raporten med ID low confidence og OOD high confidence. Har begynt å samle inn bilder.
+
+15.02.24
+The Goal of today is to get the OpenShape model up and running. 
+
+The method for detecting if the data sample is ID or OOD is by using the feature output of the OpenShape model
+and see if the euclidean distance is close to the ID data samples or if it is far from the ID data samples.

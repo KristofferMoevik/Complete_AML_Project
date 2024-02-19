@@ -1,0 +1,25 @@
+.DS_Store
+.idea
+**/__pycache__/*
+3D_OS_release_data/
+datasets/
+results/
+results_old/
+wandb/*
+outputs/*
+# !outputs/DGCNN_ARPL_CS_SR1/models/model_best.pth
+# !outputs/DGCNN_ARPL_CS_SR2/models/model_best.pth
+# !outputs/DGCNN_CE_SR1/models/model_best.pth
+# !outputs/DGCNN_CE_SR2/models/model_best.pth
+# !outputs/DGCNN_cosine_SR1/models/model_best.pth
+# !outputs/DGCNN_cosine_SR2/models/model_best.pth
+# !outputs/DGCNN_subarcface_SR1/models/model_best.pth
+# !outputs/DGCNN_subarcface_SR2/models/model_best.pth
+# !outputs/PN2_ARPL_CS_SR1/models/model_best.pth
+# !outputs/PN2_ARPL_CS_SR2/models/model_best.pth
+# !outputs/PN2_CE_SR1/models/model_best.pth
+# !outputs/PN2_CE_SR2/models/model_best.pth
+# !outputs/PN2_cosine_SR1/models/model_best.pth
+# !outputs/PN2_cosine_SR2/models/model_best.pth
+# !outputs/PN2_subarcface_SR1/models/model_best.pth
+# !outputs/PN2_subarcface_SR2/models/model_best.pth
